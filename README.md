@@ -65,4 +65,5 @@
 
 В шаблоне `base.html`:
 ```django
-{% load 'product' %}
+{% load draw_menu %}
+{% draw_menu 'SLUG' %}
