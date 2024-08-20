@@ -14,11 +14,17 @@ MenuDjangoProject — это тестовый проект на Django, кото
 **Установка и запуск проекта**
 
 git clone https://github.com/blessedforyou/MenuDjangoProject.git
+
 cd MenuDjangoProject
+
 python3 -m venv venv
+
 source venv/bin/activate  # Windows: venv\Scripts\activate
+
 python manage.py migrate
+
 python manage.py createsuperuser
+
 python manage.py runserver
 
 
