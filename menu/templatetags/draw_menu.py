@@ -1,3 +1,4 @@
+from django.db.models import Prefetch
 from django import template
 from menu.models import Menu, MenuItem
 
@@ -6,9 +7,16 @@ register = template.Library()
 @register.inclusion_tag('menu/menu.html', takes_context=True)
 def draw_menu(context, menu_slug):
     try:
-        menu = Menu.objects.get(slug=menu_slug)
-        items = MenuItem.objects.filter(menu=menu).select_related('parent').prefetch_related('children')
+        menu = Menu.objects.prefetch_related(
+            Prefetch(
+                'items',
+                queryset=MenuItem.objects.select_related('parent')
+            )
+        ).get(slug=menu_slug)
+
         active_url = context['request'].path
+
+        items = list(menu.items.all())
 
         def build_tree(parent):
             tree = []
