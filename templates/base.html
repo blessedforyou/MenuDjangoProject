@@ -1,0 +1,22 @@
+{% load static %}
+{% load draw_menu %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Главная страница{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            {% draw_menu 'home' %}
+            {% draw_menu 'products' %}
+            {% draw_menu 'services' %}
+            {% draw_menu 'about-us' %}
+        </nav>
+    </header>
+</body>
+</html>

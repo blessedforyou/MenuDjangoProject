@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+header nav {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around; /* Для распределения меню по горизонтали */
+}
+
+.menu {
+    position: relative;
+}
+
+.menu-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex; /* Отображаем меню в одну линию */
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 12px;
+    display: block;
+    background-color: #555;
+    transition: background-color 0.3s;
+    white-space: nowrap; /* Чтобы текст не переносился на новую строку */
+}
+
+.menu-item a:hover,
+.menu-item.active > a {
+    background-color: #0066cc;
+}
+
+/* Скрываем подменю по умолчанию */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    background-color: #444;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.submenu-item a {
+    padding: 8px 12px;
+    background-color: #666;
+    white-space: nowrap;
+}
+
+.submenu-item a:hover,
+.submenu-item.active > a {
+    background-color: #0088ff;
+}
+
+/* Показываем подменю при наведении на пункт главного меню */
+.menu-item:hover .submenu {
+    display: block;
+}
+
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.menu-title {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
